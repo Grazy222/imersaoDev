@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: blue;
+    background-color: #dddd;
     font-family: Arial, sans-serif;
 }
 
@@ -24,49 +24,105 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: azure;
+    color: rgb(38, 17, 226);
     text-align: center;
+    letter-spacing: 0.4rem;
+    /* Espaço entre letras*/
 }
 
-section.Cabecalho {
-    margin: 20px;
-    text-align: center;
+section.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    /* margin: 20px;
+    text-align: center; */
 }
 
 h2 {
-    color: aqua;
-    margin: 10px;
-    padding: 20px;
-    border: solid;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
 }
 
-p {
-    font-size: 14px;
+.descricao-meta {
+    padding: 0;
+    margin: 1rem;
+    font-size: 18px;
     font-weight: 300;
 }
 
-#searchInput {
-    border-radius: 25px;
-    border: none;
-    padding: 10px;
-    width: 300px;
+a .titulo {
+    text-decoration: none;
+    color: rgb(130, 28, 231);
+    font-size: 14px;
 }
 
-::placeholder {
+a.link-rede {
+
+    font-size: 12px;
+}
+
+#searchInput {
+    background-color: antiquewhite;
+    border-radius: 1.5rem;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 300px;
     text-align: center;
 }
 
+
+
 button {
-    border-radius: 25px;
+    border-radius: 1.5rem;
+    color: #f0f0f0;
+    /* font-size: 1rem;
+    cursor: pointer;
+    padding: 0.8rem 1.2rem; */
     border: none;
-    background-color: aqua;
+    background-color: rgb(25, 93, 219);
     height: 6vh;
     width: 10%;
+}
+
+::placeholder {
+    color: #9c3e3e8a;
 }
 
 button:hover {
     cursor: pointer;
     background-color: rgb(68, 117, 101);
+}
+
+.sessaDePesquisa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.1rem;
+    height: 62vh;
+    width: 100%;
+    overflow-y: auto;
+    margin: 1rem;
+    padding: 3rem;
+    border-radius: 0.6rem;
+}
+
+div.item-resultado {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #fff;
+    box-shadow: inset 0px 1px 4px 2px rgba(255, 255, 255);
+    border-radius: 2rem;
+
 }
 
 #results {
