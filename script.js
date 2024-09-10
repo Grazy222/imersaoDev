@@ -1,14 +1,17 @@
-const searchInput = document.getElementById('searchInput');
-const cardContainer = document.getElementById('cardContainer');
+const campoDePesquisa = document.querySelector('#searchInput');
+const sessaoDePesquisa = document.querySelector('.item-resultado');
 
-const displayDados = dados => {
-    cardContainer.innerHTML = "";
-    dados.forEach(e => {
+
+const displayData = data => {
+    cardContainer.innerHTML = ""; // Limpa o container antes de adicionar novos dados
+    data.forEach(e => {
         cardContainer.innerHTML += `
         <div class="card">
-            <h2>${e.id}</h2>
+            <h3>${e.title}</h3>
+                <p>${e.name}</p>
                 <img src="${e.image}" alt="${e.name}">
-            <p>${e.url}</p>
+                <link src="${e.link}"></link>
+            
         </div>
         `
     })
@@ -16,10 +19,21 @@ const displayDados = dados => {
 }
 
 
-console.log(dados); // listando [2] em qual nome quero imprimir
+console.log(data); // listando [2] em qual nome quero imprimir
 
 
-window.addEventListener("load", displayDados.bind(null, dados))
+window.addEventListener("load", displayData.bind(null, data)) // Exibir dados ao carregar q página
+
+//busca Funcionalidade de busca (Substitua com sua logoca de busca) 
+
+campoDePesquisa.addEventListener('input', async () => {
+    const termoDeBusaca = campoDePesquisa.value;
+    // Requisição á API
+    const resposta = await fetch(`https://rickandmortyapi.com/api/character/?name=${termoDeBusaca}`);
+    const data = await resposta.json();
+
+    exibirDados(dados.results);
+});
 
 
 
