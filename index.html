@@ -5,36 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <l>
     <link rel="stylesheet" href="style.css">
-    <title>Barra de Pesquisar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap" rel="stylesheet">
+    <title>Guia- Cabelos Crespos</title>
 </head>
 <body>
     <header>
-        <h1><a href="https://pt.wikipedia.org/wiki/Curta-metragem" class="titulo">RICK AND MORTY</a></h1>
+    <img src="logo.jpeg" alt="Logo" class="logo">
+        <h1><a href="#" class="titulo">Guia Completo para cabelos crespos</a></h1>
     </header>
 <main>
     <section class="campoDePesquisa">
-    <div class="search">
-        <input type="text" id="searchInput" placeholder="Digite o nome do Pesonagem">
-        <button onclick="search()">Pesquisar</button>
-    </div>
-    <div id="cardContainer">
-       <!-- <a href="https://pt.wikipedia.org/wiki/Rick_and_Morty" class="link-rede" target="_blank">Mais Informações</a>  -->
-            
-    </div>
-     </section>
-    <!-- <section class="sessaoDePesquisa" >
-        <div class="item-resultado"> 
-        <h2>
-        <a href="https://pt.wikipedia.org/wiki/Curta-metragem" class="titulo"> Rick</a>
-        </h2>
-        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Morty" />
-        <p class="descricao-meta">A série estreou em 2 de dezembro de 2013 e acompanha as perigosas aventuras do cientista alcoólatra Rick e seu neto Morty, que divide seu tempo entre a vida familiar e viagens interdimensionais..</p>
-            <a href="https://pt.wikipedia.org/wiki/Rick_and_Morty" class="link-rede" target="_blank">Mais Informações</a>
-        </div> 
-    </section> -->
+        <div class="container">
+            <input type="text" id="busca" placeholder="Digite o tipo (4A, 4B, 4C)">
+            <button onclick="buscar()">Pesquisar</button>
+        </div>
+        <!-- <div id="resultados"></div> -->
+    </section>
+    <section class="sessaoDePesquisa" >
+        <div class="item-resultado" id="resultados"> 
+        <!-- <h2>Cabelo Crespos 4A</h2>
+        <img  class="imagensCabelo" src="https://naturalmentebonita.bioextratus.com.br/wp-content/uploads/2022/01/1990864301468904270137349680185297673178562n-6.jpeg" alt="tipo 4A" />
+        <p class="descricao-meta">Fator encolhimento: nessa curvatura, o fator encolhimento é fortíssimo, por isso, o cabelo aparenta ser menor do que realmente é um cabelo mais frágil e acaba sendo mais ressecado. Precisa de atenção e hidratação redobrada. Nessa textura, usa-se muito a umectação.</p>
+            <a href="https://www.youtube.com/watch?v=pRjh0RgTHAo&ab_channel=GrupoAfroChic-Sal%C3%A3o%2CEscolaeProdutos" class="link-rede" target="_blank">Mais Informações</a> -->
+        </div>  
+    </section> 
 </main>
 <footer>
-    <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
+    <p>2024 - Guia Completo para cabelos crespos. Todos os direitos reservados</p>
     <p> Entre em contato pelo email: graciele222@gmail.com</p>
 </footer>
 <script src="./dados.js"></script>

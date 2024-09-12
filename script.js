@@ -1,96 +1,43 @@
-const campoDePesquisa = document.querySelector('#searchInput');
-const sessaoDePesquisa = document.querySelector('.item-resultado');
+const buscaInput = document.querySelector('busca');
+const itemResultado = document.querySelector('resultados');
 
+const tiposDeCabelo = [
+    {
+        tipo: '4A',
+        titulo: 'Cabelo Crespos 4A',
+        imagem: 'https://naturalmentebonita.bioextratus.com.br/wp-content/uploads/2022/01/1990864301468904270137349680185297673178562n-6.jpeg',
+        descricao: 'Fator encolhimento: nessa curvatura, o fator encolhimento é fortíssimo, por isso, o cabelo aparenta ser menor do que realmente é um cabelo mais frágil e acaba sendo mais ressecado. Precisa de atenção e hidratação redobrada. Nessa textura, usa-se muito a umectação.',
+        link: 'https://www.youtube.com/watch?v=pRjh0RgTHAo&ab_channel=GrupoAfroChic-Sal%C3%A3o%2CEscolaeProdutos'
+    },
+    {
+        tipo: '4B',
+        titulo: 'Cabelo Crespos 4B',
+        imagem: 'https://naturalmentebonita.bioextratus.com.br/wp-content/uploads/2022/01/cabelocrespocomfranjatipo4b-6.jpeg',
+        descricao: 'O cabelo 4B tem um tipo de curvatura diferente do espiral, é nesse fio que encontramos o formato zig zag. Essa é uma repetição menor que no tipo 4A, que lembra uma letra Z em seu formato',
+        link: 'https://www.youtube.com/watch?v=ngPymmSLLh8&ab_channel=GrupoAfroChic-Sal%C3%A3o%2CEscolaeProdutos'
+    },
+    {
+        tipo: '4C',
+        titulo: 'Cabelo Crespos 4C',
+        imagem: 'https://naturalmentebonita.bioextratus.com.br/wp-content/uploads/2022/01/joicy1.jpeg',
+        descricao: 'Também conhecidos como crespíssimos, os cabelos tipo 4C não necessariamente têm definição, isso porque essa é uma textura que não forma espiral. Não há um formato padrão que defina esse cabelo, como um espiral ou zigzag, por exemplo. É comum que esse tipo de fio apresente volume natural, ',
+        link: 'https://www.youtube.com/watch?v=glw-0Vfq4cs&ab_channel=GrupoAfroChic-Sal%C3%A3o%2CEscolaeProdutos'
+    }
+];
+function buscar() {
+    const termoBusca = buscaInput.value.toUpperCase();
+    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo === termoBusca);
 
-const displayData = data => {
-    cardContainer.innerHTML = ""; // Limpa o container antes de adicionar novos dados
-    data.forEach(e => {
-        cardContainer.innerHTML += `
-        <div class="card">
-            <h3>${e.title}</h3>
-                <p>${e.name}</p>
-                <img src="${e.image}" alt="${e.name}">
-                <link src="${e.link}"></link>
-            
-        </div>
-        `
-    })
-
+    resultadosDiv.innerHTML = '';
+    resultados.forEach(resultado => {
+        resultadosDiv.innerHTML += `
+        <div class="item-resultado"> 
+        <h2>${resultado.titulo}</h2>
+        <img  class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
+        <p class="descricao-meta">${resultado.descricao}.</p>
+            <a href="${resultado.link}" class="link-rede" target="_blank">Mais Informações</a>
+        </div>  
+        `;
+    });
 }
-
-
-console.log(data); // listando [2] em qual nome quero imprimir
-
-
-window.addEventListener("load", displayData.bind(null, data)) // Exibir dados ao carregar q página
-
-//busca Funcionalidade de busca (Substitua com sua logoca de busca) 
-
-campoDePesquisa.addEventListener('input', async () => {
-    const termoDeBusaca = campoDePesquisa.value;
-    // Requisição á API
-    const resposta = await fetch(`https://rickandmortyapi.com/api/character/?name=${termoDeBusaca}`);
-    const data = await resposta.json();
-
-    exibirDados(dados.results);
-});
-
-
-
-// searchInput.addEventListener('input',
-
-//     async () => {
-//         const searchTerm = searchInput.value;
-//         const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`);
-//         const data = await response.json();
-//         searchResultsDiv.innerHTML = '';
-//         data.resultsDiv.forEach(character => {
-//             const div = document.createElement('div');
-//             div.inerrHTML = `
-//             <img src="${character.image}" alt="${character.name}">
-//       <h2>${character.name}</h2>
-//       <p>${character.species}</p>
-//             `
-//         })
-//     }
-// )
-
-
-
-
-
-
-// function search() {
-//     const searchInput = document.getElementById('searchInput');
-//     const resultsDiv = document.getElementById('resultsDiv');
-// }
-
-// const searchTerm = searchInput.value.toLowerCase();
-
-// const categorias = {
-//     futebol: ['Neymar Jr.', 'Pele', 'Vínicius Jr'],
-//     volei: ['Maicon Sidnei', 'Fernando Venturini', 'Giovanna'],
-//     Ginasta: ['Rebeca Andrade', 'Daiana dos Santos']
-// }
-
-// // Aqui você implementaria a lógica de busca real, consultando um banco de dados ou API.
-// // Por enquanto, vamos simular resultados:
-
-// let results = [];
-// if (searchTerm === 'rebeca andrade' || searchTerm === 'neymar' || searchTerm === 'martins') {
-//     results = ['Biografia de rebeca andrade', 'Neymar Jr. - Paris Saint-Germain', 'Martins - Atleta Olímpico'];
-// } else if (searchTerm.includes('futebol')) {
-//     results = ['História do futebol brasileiro', 'Copa do Mundo', 'Seleção Brasileira'];
-// } else if (searchTerm.includes('olimpíadas')) {
-//     results = ['Olimpíadas Rio 2016', 'Medalhas brasileiras', 'Atletas olimpícos'];
-// } else {
-//     results - ['Nenhum resultado encontrado para: ' + searchTerm];
-// }
-
-// // Exibir os resultados
-// let html = '';
-// results.forEach(result => {
-//     html += `<p>${result}</p>`;
-// });
-// resultsDiv.innerHTML = html;
 
