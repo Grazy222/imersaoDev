@@ -102,12 +102,13 @@ button {
 
 /* fecha primeira Section*/
 section.sessaoDePesquisa {
+    /* height: 80vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* padding: 28px;
-    margin: 26px; */
-    background-color: rgb(231, 175, 236);
+    justify-content: center; */
+    padding: 28px;
+    margin: 26px;
+    /* background-color: rgb(231, 175, 236); */
     background-image: url(./plano-fundo.jpg);
     background-position: 10%;
     /* background-repeat: no-repeat; */
@@ -116,33 +117,43 @@ section.sessaoDePesquisa {
 
 }
 
+#resultados {
+    /* width: 59%; */
+    height: 83vh;
+    display: flex;
+    justify-content: center;
+
+}
+
 div.item-resultado {
-    width: 50%;
+    width: 57%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: antiquewhite;
     border: solid 1px #fff;
     box-shadow: inset 0px 1px 4px 2px rgba(255, 255, 255);
     border-radius: 2rem;
-    /* margin: 10px;
-    padding: 54px 20px; */
+    margin: 10px;
+    padding: 30px 18px;
 }
 
 h2 {
+    color: rgb(184, 184, 16);
     margin: 2%;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .imagensCabelo {
-    width: 28%;
-    height: 36vh;
+    width: 36%;
+    height: 33vh;
 
 }
 
 p.descricao-meta {
-    width: 50%;
-    padding: 19px;
+    width: 53%;
+    padding: 11px;
     margin: 13px;
     font-size: 1em;
     font-weight: 300;

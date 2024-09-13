@@ -1,6 +1,7 @@
-const buscaInput = document.querySelector('busca');
-const itemResultado = document.querySelector('resultados');
+const buscaInput = document.querySelector('#busca');
+const resultadosDiv = document.querySelector('#resultados');
 
+// Array de objetos com os dados dos tipos de cabelo
 const tiposDeCabelo = [
     {
         tipo: '4A',
@@ -24,20 +25,26 @@ const tiposDeCabelo = [
         link: 'https://www.youtube.com/watch?v=glw-0Vfq4cs&ab_channel=GrupoAfroChic-Sal%C3%A3o%2CEscolaeProdutos'
     }
 ];
+
+
 function buscar() {
-    const termoBusca = buscaInput.value.toUpperCase();
-    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo === termoBusca);
+    const termoBusca = buscaInput.value.trim().toUpperCase(); // Remove espaços e converte em maiúsculas
+    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toUpperCase() === termoBusca); // Faz a comparação em maiúsculas
 
     resultadosDiv.innerHTML = '';
-    resultados.forEach(resultado => {
-        resultadosDiv.innerHTML += `
-        <div class="item-resultado"> 
-        <h2>${resultado.titulo}</h2>
-        <img  class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
-        <p class="descricao-meta">${resultado.descricao}.</p>
-            <a href="${resultado.link}" class="link-rede" target="_blank">Mais Informações</a>
-        </div>  
-        `;
-    });
-}
+    if (resultados.length > 0) {
+        resultados.forEach(resultado => {
+            resultadosDiv.innerHTML += `
+                <div class="item-resultado">
+                    <h2>${resultado.titulo}</h2>
+                    <img class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
+                    <p class="descricao-meta">${resultado.descricao}.</p>
+                    <a href="${resultado.link}" class="link-rede" target="_blank">Mais Informações</a>
+                </div>
+            `;
+        });
+    } else {
+        resultadosDiv.innerHTML = '<p>Nenhum resultado encontrado</p>';
+    }
 
+}
