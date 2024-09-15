@@ -1,7 +1,9 @@
 const buscaInput = document.querySelector('#busca');
-const resultadosDiv = document.querySelector('#resultados');
+const resultadosPesaquisa = document.getElementById('resultados-pesquisa');
+
 
 // Array de objetos com os dados dos tipos de cabelo
+
 const tiposDeCabelo = [
     {
         tipo: '4A',
@@ -29,12 +31,12 @@ const tiposDeCabelo = [
 
 function buscar() {
     const termoBusca = buscaInput.value.trim().toUpperCase(); // Remove espaços e converte em maiúsculas
-    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toUpperCase() === termoBusca); // Faz a comparação em maiúsculas
+    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toUpperCase() === termoBusca);
 
-    resultadosDiv.innerHTML = '';
+    resultadosPesaquisa.innerHTML = '';
     if (resultados.length > 0) {
         resultados.forEach(resultado => {
-            resultadosDiv.innerHTML += `
+            resultadosPesaquisa.innerHTML += `
                 <div class="item-resultado">
                     <h2>${resultado.titulo}</h2>
                     <img class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
@@ -44,7 +46,41 @@ function buscar() {
             `;
         });
     } else {
-        resultadosDiv.innerHTML = '<p>Nenhum resultado encontrado</p>';
+        resultadosPesaquisa.innerHTML = '<p>Nenhum resultado encontrado</p>';
     }
 
 }
+
+
+
+// para cada dado dentro da lista de dados
+
+//let resultados = "";
+//let titulo = "";
+//let decricao = "";
+
+// for (let dado of dados) {
+// titulo = dado.titulo.toLowerCase()
+// descricao = dado.descricao.toLowerCase()
+// if (dado.titulo.includes(campoPesquisa) || dado.decricao.includes(campoPesquisa)){
+//    resultadosDiv.innerHTML += `
+//    <div class="item-resultado">
+//         <h2>${resultado.titulo}</h2>
+//         <img class="imagensCabelo"
+//          src="${resultado.  imagem}"
+//          alt="${resultado.titulo}" />
+//        <p class="descricao-meta">${resultado.descricao}.</p>
+//        <a href="${resultado.link}"  class="link-rede" target="_blank">Mais Informações</a>
+//        </div>
+// }
+
+//imprimindo o resultado da caixa de pesquisa
+
+//  resultadosDiv.innerHTML += `
+//                 <div class="item-resultado">
+//                     <h2>${resultado.titulo}</h2>
+//                     <img class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
+//                     <p class="descricao-meta">${resultado.descricao}.</p>
+//                     <a href="${resultado.link}" class="link-rede" target="_blank">Mais Informações</a>
+//                 </div>
+//             `;
