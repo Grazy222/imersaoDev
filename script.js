@@ -1,8 +1,6 @@
 const buscaInput = document.querySelector('#busca');
-const resultadosPesaquisa = document.getElementById('resultados-pesquisa');
+const resultadosPesquisa = document.getElementById('resultados-pesquisa');
 
-
-// Array de objetos com os dados dos tipos de cabelo
 
 const tiposDeCabelo = [
     {
@@ -30,13 +28,13 @@ const tiposDeCabelo = [
 
 
 function buscar() {
-    const termoBusca = buscaInput.value.trim().toUpperCase(); // Remove espaços e converte em maiúsculas
-    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toUpperCase() === termoBusca);
+    const termoBuscaMinuscula = buscaInput.ariaValueMax.trim().toLowerCase();
+    const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toLowerCase().includes(termoBuscaMinuscula) || tipo.descricao.toLowerCase().includes(termoBuscaMinuscula));
 
-    resultadosPesaquisa.innerHTML = '';
+    resultadosPesquisa.innerHTML = '';
     if (resultados.length > 0) {
         resultados.forEach(resultado => {
-            resultadosPesaquisa.innerHTML += `
+            resultadosPesquisa.innerHTML += `
                 <div class="item-resultado">
                     <h2>${resultado.titulo}</h2>
                     <img class="imagensCabelo" src="${resultado.imagem}" alt="${resultado.titulo}" />
@@ -46,10 +44,11 @@ function buscar() {
             `;
         });
     } else {
-        resultadosPesaquisa.innerHTML = '<p>Nenhum resultado encontrado</p>';
+        resultadosPesquisa.innerHTML = '<p>Nenhum resultado encontrado</p>';
     }
 
 }
+
 
 
 
