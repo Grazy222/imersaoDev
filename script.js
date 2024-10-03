@@ -28,7 +28,7 @@ const tiposDeCabelo = [
 
 
 function buscar() {
-    const termoBuscaMinuscula = buscaInput.ariaValueMax.trim().toLowerCase();
+    const termoBuscaMinuscula = buscaInput.value.trim().toLowerCase();
     const resultados = tiposDeCabelo.filter(tipo => tipo.tipo.toLowerCase().includes(termoBuscaMinuscula) || tipo.descricao.toLowerCase().includes(termoBuscaMinuscula));
 
     resultadosPesquisa.innerHTML = '';
